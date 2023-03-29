@@ -1,0 +1,481 @@
+@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+ 
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.name-shop > p {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: 'Niconne', cursive;
+  color: #506266;
+  text-shadow: 2px 2px 0px  #b5a5c5,
+               4px 4px 0px #4e5078,
+               
+}
+.carousel-inner img {
+  width: 100%;
+  height: 500px;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+/* Style the navigation bar links */
+#menu-bar {
+  background-color: rgb(221, 221, 195);
+  position: sticky !important;
+  top: 0;
+}
+#menu-bar .container {
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  font-size: 25px;
+  align-items: center;
+}
+#menu-bar .container > div:not(nth-child(1)) {
+  margin: 0px auto;
+}
+#menu-bar a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+#menu-bar p {
+  margin: 0px auto;
+}
+#menu-bar a:hover {
+  color: #834f15;
+}
+.dm {
+  display: flex;
+  align-items: center;
+}
+.sticky {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 2;
+}
+.sc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search {
+  position: relative;
+  border: none;
+  width: 180px;
+  transition: 0.6s ease-in-out;
+}
+.search a i {
+  height: 32px;
+  width: 32px;
+}
+input {
+  height: 45px;
+  width: 100%;
+  border-radius: 21.5px;
+  border-color: #c9a91e;
+  background-color: rgb(229, 231, 236);
+  font-size: 16px;
+  padding-left: 40px;
+}
+div .search:hover {
+  width: 220px;
+}
+div .search:hover input {
+  border-color: #8f6637;
+}
+i.fas.fa-search {
+  position: absolute;
+  top: 25%;
+  left: 10px;
+}
+.myCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}
+.myCart p {
+  padding-left: 5px;
+}
+/* Active/current link */
+.navbar a.active {
+  background-color: #666;
+  color: white;
+}
+
+/* Column container */
+.row {
+  width: 100%;
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 20%; /* IE10 */
+  flex: 20%;
+  background-color: white;
+  padding: 0px;
+  padding-left: 15px;
+}
+#side-bar {
+  background-color: white;
+}
+#side-bar > div {
+  width: 100%;
+}
+.side-bar-sticky {
+  position: sticky;
+  top: 76px;
+}
+.nav-item:first-child{
+  margin-top: 20px;
+}
+.nav-item > a{
+  border: 2px solid transparent;
+}
+.nav-item > a:hover {
+  border: 2px solid #8f8f86;
+  border-radius: 5px;
+  background-color: rgb(238, 234, 234);
+}
+.nav-item > a:active {
+  background-color:rgb(220, 207, 228);
+}
+.side i {
+  padding-left: 10px;
+  font-size: 22px;
+}
+.side .pro p {
+  text-transform: uppercase;
+}
+.pro {
+  border-bottom: 0.5px solid rgb(182, 172, 172);
+  box-shadow: 0 2px -2px 4px black;
+  margin-bottom: 20px;
+}
+.pro ul li:last-child {
+  margin-bottom: 10px;
+}
+.pro ul li a {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+.pro ul li a > p {
+  padding-left: 10px;
+  text-align: center;
+  margin: 0px auto;
+  margin-left: 5px;
+}
+.user{
+  font-size: 24px;
+}
+.user > p {
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.user > .dropdown{
+  margin-left: 50px;
+}
+.user .dropdown{
+  margin-bottom: 120px;
+}
+.user > div > #no-user{
+  margin-left: 10px;
+  padding: 5px 5px;
+  border: 2px solid transparent;
+  text-decoration: none;
+}
+.user > div > #no-user:hover{
+  border: 2px solid #8f8f86;
+  border-radius: 5px;
+  background-color: rgb(238, 234, 234);
+} 
+/* Main column */
+.main {
+  -ms-flex: 80%; /* IE10 */
+  flex: 80%;
+  background-color: white;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Style view-body */
+.view-body {
+  width: 100%;
+  padding: 0px 15px;
+  margin: 0px auto;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.view-body > div {
+  width: calc((100% - 15px) / 2);
+}
+.view-body div > a:hover img {
+  transform: scale(1.25);
+  opacity: 0.9;
+}
+.view-body .hinh {
+  overflow: hidden;
+}
+.view-left > div:nth-child(2) {
+  margin-top: 15px;
+  max-height: 272px;
+}
+.view-body div > a > img {
+  width: 100%;
+  opacity: 1;
+  transition: 0.75s all ease-in-out;
+}
+.view-body .bot-right {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.view-body .bot-right div {
+  width: calc((100% - 15px) / 2);
+}
+.view-body .bot-right div a img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 220px;
+}
+.bot-right {
+  display: flex;
+}
+
+/* section */
+section {
+  padding-top: 80px;
+  padding-bottom: 30px;
+  border-top: 1px solid rgb(206, 190, 190);
+}
+section:first-of-type {
+  margin-top: 80px;
+}
+section:last-of-type {
+  padding-bottom: 0px;
+}
+section h3 {
+  height: 35px;
+  font-size: 36px;
+  line-height: 35px;
+  color: #292f36;
+  text-transform: uppercase;
+  font-weight: normal;
+  border-left: 10px solid #9a959b;
+  padding: 0px 14px;
+  margin-bottom: 60px;
+}
+.hang {
+  display: flex;
+  width: 100%;
+  justify-content:left;
+  flex-wrap: wrap;
+}
+.hang > #previous, .hang > #next {
+  flex: 1;
+}
+.cot {
+  width: calc((100% - 45px) / 4);
+  margin-right: 15px;
+  height: 320px;
+  border: 1px solid rgb(124, 121, 121);
+  margin-bottom: 60px;
+}
+.cot:nth-child(4n){
+  margin-right: 0px;
+}
+.hang > #next {
+  justify-content: flex-end;
+  margin-right: 0px;
+  margin-left: 15px;
+}
+.cot a img {
+  width: 100%;
+  height: 220px;
+}
+/* css cho san pham */
+.hang .cot {
+  position: relative;
+}
+.hang .cot > div:nth-of-type(1) {
+  height: 100px;
+  position: absolute;
+  top: 220px;
+  left: 0px;
+  width: 100%;
+  background-color: #dbebe8;
+  transition: 0.6s ease-in-out;
+  border-bottom: 3px solid rgb(102, 100, 100);
+}
+.hang .cot #cart {
+  display: flex;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.hang .cot #cart a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  text-align: center;
+  background-color: #b8c7cf;
+  border: 1 solid rgb(92, 89, 126);
+  opacity: 0.8;
+  border-radius: 20px;
+  padding: 10px;
+}
+.hang .cot #cart a p {
+  margin: 0px;
+}
+.hang .cot:hover #cart {
+  display: flex;
+  opacity: 1;
+}
+.hang .cot:hover {
+  opacity: 0.85;
+  transition: 0.5s ease-in-out;
+}
+.hang .cot .loai {
+  padding: 10px auto;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.hang .cot .loai {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.hang .cot .tenSP {
+  margin: 0px;
+  font-size: 18px;
+  padding-top: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #10374a;
+}
+.hang .cot .gia {
+  position: absolute;
+  bottom: 5px;
+  left: 95px;
+  margin-bottom: 0px;
+  font-size: 18px;
+  text-align: center;
+  color: #eb8608;
+  font-weight: 600;
+}
+section .cot:hover > div:nth-of-type(1) {
+  background-color: rgba($color: #dbebe8, $alpha: 0.7);
+}
+
+/* contact */
+#contact > div {
+  display: flex;
+  color: #aa4f1a;
+  font-size: 20px;
+  font-weight: bold;
+  justify-content: space-around;
+}
+#contact #sale > div:not(div:nth-child(6)) {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+#contact #sale div p {
+  margin: auto 0px;
+  padding-left: 20px;
+}
+#contact i {
+  color: #ecc9a1;
+}
+#cont i {
+  color: #57bafc;
+}
+#cont a {
+  text-decoration: none;
+  color: #f87474;
+}
+#contact #cont {
+  color: #f87474;
+  background-color: #e2ecf1;
+  box-shadow: 5px 5px 5px 10px #888888;
+  border-radius: 10px;
+  padding-right: 15px;
+  margin-bottom: 15px;
+}
+#cont div {
+  padding-left: 50px;
+}
+#cont div a {
+  margin: 0px 5px;
+  color: #7529d8;
+}
+
+/* footer */
+footer {
+  background-color: rgb(53, 74, 88);
+  height: 50px;
+  color: aliceblue;
+}
+footer .container {
+  display: flex;
+}
+footer div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+footer p {
+  margin: 0 auto;
+}

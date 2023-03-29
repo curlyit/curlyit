@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="/css/detailProduct.css">
+<div>
+  {{> menuBar}}
+  <div class="row">
+    {{> sideBar}}
+    <div class="col"></div>
+    <div class="col-5 pt-5" id="two">
+      <img id="product-image" src="data:{{product.image.contentType}};base64,{{product.image.data}}">
+    </div>
+    <div class="col-4 pt-5">
+      <h2>{{product.title}}</h2>
+      <p id="describe">{{product.describe}}</p>
+      <p id="classify"></p>
+      <p id="price">Giá: {{product.price}}$</p>
+      <div id="btn"><button id="btn-buy">Buy now</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var classifyValue = `{{product.type}}`;
+    var value;
+    if(classifyValue === 'accessory')
+      value = 'Phụ kiện Pet';
+    else if(classifyValue === 'food')
+      value = 'Đồ ăn Pet';
+    else 
+      value = 'Giống Pet';
+    
+    console.log('kk');
+    document.querySelector('#classify').innerHTML = 'Phân loại: ' + value;
+  })
+</script>

@@ -1,0 +1,118 @@
+<div>
+  {{> menuBar}}
+  <div class="row">
+    {{> sideBar }}
+      <div class="col"></div>
+      <div class="col-9">
+        <form
+          class="mt-4 container"
+          name="container-form"
+          method="POST"
+          action="/"
+        >
+          <h3>Quản lý sản phẩm</h3>
+          <a href="/product/trash"><i class="fas fa-trash mb-2 mt-3"></i> Thùng rác({{deletedCount}})</a>
+          <br>
+          <a href="/product/create"><i class="fas fa-plus"></i> Tạo sản phẩm mới</a>
+          <table class="table mt-2">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tiêu đề</th>
+                <th scope="col">Giá</th>
+                <th scope="col">Phân loại</th>
+                <th scope="col">Thời gian tạo</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each productsUser}}
+                <tr>
+                  <th scope="row">{{sum @index 1}}</th>
+                  <td>{{this.title}}</td>
+                  <td>{{this.price}}</td>
+                  <td>{{this.type}}</td>
+                  <td>{{this.createdAt}}</td>
+                  <td>
+                    <a
+                      class="btn btn-primary mb-1"
+                      href="/product/{{this._id}}/edit"
+                      role="button"
+                    >Sửa</a>
+                    <a
+                      class="btn btn-primary mb-1"
+                      data-toggle="modal"
+                      data-target="#deleteProduct"
+                      data-id="{{this._id}}"
+                      href="/product/{{this._id}}"
+                    >Xóa</a>
+                  </td>
+                </tr>
+              {{else}}
+                <tr>
+                  <td colspan="5" class="text-center">
+                    <h4>Không có sản phẩm nào</h4>
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </form>
+      </div>
+  </div>
+</div>
+
+{{! confirm delete Product}}
+<div id="deleteProduct" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete product!</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Do you want delete this product?</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="btn-deleteProduct"
+          type="button"
+          class="btn btn-danger"
+        >Delete</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >Exit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! delete hidden form}}
+<form name="deleteProduct-form" method="POST"></form>
+
+<script>
+
+  var productId;
+  var btnDeleteProduct = document.getElementById('btn-deleteProduct');
+  var deleteForm = document.forms['deleteProduct-form'];
+
+  document.addEventListener('DOMContentLoaded', function(){
+    $('#deleteProduct').on('show.bs.modal', function(event){
+      var button = $(event.relatedTarget);
+      productId = button.data('id');
+    });
+    btnDeleteProduct.onclick = function(){
+      deleteForm.action = '/product/' + productId + '?_method=DELETE';
+      deleteForm.submit();
+    }
+  })
+</script>

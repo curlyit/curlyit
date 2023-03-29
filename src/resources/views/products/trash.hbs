@@ -1,0 +1,123 @@
+<div>
+  {{> menuBar}}
+  <div class="row">
+    {{>sideBar}}
+    <div class="col"></div>
+    <div class="col-9">
+      <form class="mt-4 container" name="container-form" method="POST" action="/products/trash-form-actions">
+        <a href="/user/manage">Danh sách sảnh phẩm</a>
+        <br>
+        <h3>Sản phẩm đã xóa</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Tiêu đề</th>
+              <th scope="col">Giá</th>
+              <th scope="col">Phân loại</th>
+              <th scope="col">Thời gian xóa</th>
+              <th scope="col"></th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            {{#each productsDeleted}}
+              <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.title}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.type}}</td>          
+                <td>{{this.deletedAt}}</td>
+                <td>
+                  <a
+                    class="btn btn-primary btn-restore mb-1"
+                    data-id="{{this._id}}"
+                    href=""
+                  >Khôi phục</a>
+                  <a
+                    class="btn btn-primary mb-1"
+                    data-toggle="modal"
+                    data-target="#deleteProduct"
+                    data-id="{{this._id}}" href=""
+                  >Xóa vĩnh viễn</a>
+                </td>
+              </tr>
+            {{else}}
+              <tr>
+                <td colspan="5" class="text-center">
+                  <h4>Thùng rác trống</h4>
+                  <a href="/product/create">Tạo sản phẩm mới</a>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{! confirm delete Product}}
+<div id="deleteProduct" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">DELETE PERMANENTLY!</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Delete this product permanently</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="btn-deleteProduct"
+          type="button"
+          class="btn btn-danger"
+        >Delete</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >Exit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! hidden form}}
+<form name="deleteProduct-form" method="POST"></form>
+<form name="restoreProduct-form" method="POST"></form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var productId;
+    var restoreForm = document.forms['restoreProduct-form'];
+    var deleteForm = document.forms['deleteProduct-form'];
+    var restoreBtn = $('.btn-restore');
+    var deleteBtn = $('#btn-deleteProduct');
+
+    $('#deleteProduct').on('show.bs.modal', function(event){
+      var button = $(event.relatedTarget);
+      productId = button.data('id');
+    });
+
+    deleteBtn.click(function(e){
+      deleteForm.action = '/product/' + productId + '/force?_method=DELETE' ;
+      deleteForm.submit();
+    });
+
+    restoreBtn.click(function(e){
+      e.preventDefault();
+      var id = $(this).data('id');
+      restoreForm.action = '/product/' + id + '/restore?_method=PATCH';
+      restoreForm.submit(); 
+    });
+  })
+</script>

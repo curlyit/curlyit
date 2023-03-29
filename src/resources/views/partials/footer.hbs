@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/footer.css">
+<footer>
+    <div class="container">
+        <div>
+            <i class="fas fa-copyright"></i>
+            <p>Copyright 2023 by NguyenDucThanh</p>
+        </div>
+    </div>
+</footer>
+<script>
+    window.addEventListener('load', function() {
+        var windowHeight = window.innerHeight;
+        var contentHeight = document.body.clientHeight;
+        var navbarHeight = document.querySelector('.navbar').clientHeight;
+        if (windowHeight - navbarHeight > contentHeight) {
+            document.querySelector('footer').style.position = 'fixed';
+            document.querySelector('footer').style.bottom = '0';
+            document.querySelector('footer').style.width = '100%';
+        }
+    });
+</script>

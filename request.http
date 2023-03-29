@@ -1,0 +1,13 @@
+POST http://localhost:6969/user/login
+Content-Type: application/json
+
+{
+    "username": "a",
+    "password": "a"
+}
+
+###
+
+POST http://localhost:6969/product/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBmMjI1MjkxZTJhOTRkNjA4ZDVmMTMiLCJpYXQiOjE2Nzg4MDc0NTl9.Rj5rRT_9HlGVN3NZNTshnJOajVkpVKWjR2ZAcF0DA0M

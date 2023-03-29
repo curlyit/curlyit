@@ -1,0 +1,172 @@
+<div>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+      
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/SlideShow1.jpeg" alt="Los Angeles">
+          </div>
+          <div class="carousel-item">
+            <img src="img/SlideShow2.png" alt="Chicago">
+          </div>
+          <div class="carousel-item">
+            <img src="img/SlideShow3.jpeg" alt="New York">
+          </div>
+        </div>
+      
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      
+      </div>
+
+    <!-- đặt các thẻ link đên nơi khác... -->
+    <div id="navigation">
+    </div>
+    {{> menuBar}}
+ 
+    <div class="row">
+        {{> sideBar }} 
+        <div class="main">
+            <div class="view-body" id="view-body">
+                <div class="view-left">
+                    <div class="hinh" id="img1"><a href="#"><img src="img/hinhnen.jpg" alt=""></a></div>
+                    <div class="hinh" id="img2"><a href="#"><img src="img/doanmeo.jpg" alt=""></a></div>
+                </div>
+             
+                <div class="view-right">
+                    <div class="hinh" id="img3"><a href="#"><img src="img/dochoimeo.png" alt=""></a></div>
+                    <div class="bot-right">
+                        <div class="hinh" id="img4"><a href="#"><img src="img/meoxinh.jpg" alt=""></a></div>
+                        <div class="hinh" id="img5"><a href="#"><img src="img/nen3.jpeg" alt=""></a></div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="eat">
+                <div class="container">
+                    <h3>Đồ ăn cho pet</h3>
+                    <div class="hang">                       
+                            {{#each products}}
+                            {{#if (eq type 'food')}}
+                            <div class="cot">
+                                <a href="/product/{{this._id}}/detail"><img id="product-image" src="data:{{this.image.contentType}};base64,{{this.image.data}}"></a>
+                                <div>
+                                    <p class="tenSP">{{this.title}}</p>
+                                    <p class="gia"> {{this.price}}<span style="text-decoration: underline;">đ</span></p>
+                                </div>  
+                                <div id="cart">
+                                    <a href="/product/{{this._id}}/detail">
+                                        <i class="fas fa-splotch"></i>
+                                        <p>Xem chi tiết!</p>
+                                    </a>
+                                </div>                       
+                            </div>
+                            {{/if}}
+                            {{/each}}                      
+                    </div>
+                </div>
+            </section>
+            <section id="accessory">
+                <div class="container">
+                    <h3>Phụ kiện, đồ chơi</h3>
+                    <div class="hang">                       
+                            {{#each products}}
+                            {{#if (eq type 'accessory')}}
+                            <div class="cot">
+                                <a href="/product/{{this._id}}/detail"><img id="product-image" src="data:{{this.image.contentType}};base64,{{this.image.data}}"></a>
+                                <div>
+                                    <p class="tenSP">{{this.title}}</p>
+                                    <p class="gia"> {{this.price}}<span style="text-decoration: underline;">đ</span></p>
+                                </div>  
+                                <div id="cart">
+                                    <a href="/product/{{this._id}}/detail">
+                                        <i class="fas fa-splotch"></i>
+                                        <p>Xem chi tiết!</p>
+                                    </a>
+                                </div>                       
+                            </div>
+                            {{/if}}
+                            {{/each}}                       
+                    </div>
+                </div>
+            </section>
+            <section id="lineage">
+                <div class="container">
+                    <h3>Các giống Pet</h3>
+                    <div class="hang">
+                        
+                      {{#each products}}
+                      {{#if (eq type 'lineage')}}
+                      <div class="cot">
+                          <a href="/product/{{this._id}}/detail"><img id="product-image" src="data:{{this.image.contentType}};base64,{{this.image.data}}"></a>
+                          <div>
+                              <p class="tenSP">{{this.title}}</p>
+                              <p class="gia"> {{this.price}}<span style="text-decoration: underline;">đ</span></p>
+                          </div>  
+                          <div id="cart">
+                              <a href="/product/{{this._id}}/detail">
+                                  <i class="fas fa-splotch"></i>
+                                  <p>Xem chi tiết!</p>
+                              </a>
+                          </div>                       
+                      </div>
+                      {{/if}}
+                      {{/each}}
+                        
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+          
+                <h3>Hãy liên hệ với chúng tôi!</h3>
+                <div>
+                    <div id="sale">
+                        <div><i class="fas fa-qrcode"></i><p>QR code tiện lợi</p></div>
+                        <div><i class="fab fa-cc-paypal"></i><p>Thanh toán qua Paypal</p></div>
+                        <div><i class="fas fa-shipping-fast"></i><p>Giao hàng nhanh chóng</p></div>
+                        <div><i class="fab fa-salesforce"></i><p>Và thật nhiều ưu đãi khác...</p></div>
+                        <div><p></p></div>
+                        <div id="cont">
+                            <p>Đ/C: 97 Man Thiện, Q.9 TP.HCM</p>
+                            <p>- Hotline: 0587607250 hoặc </p>
+                                <div>
+                                    <a href="#">Facebook <i class="fab fa-facebook-f"></i></a>
+                                    <a href="#">Twitter <i class="fab fa-twitter"></i></a>
+                                    <a href="#">Instagram <i class="fab fa-instagram-square"></i></a>
+                                </div>
+                            <a href="#"><p>- Fanpage: petthucung.hoangthuongshop</p></a>
+                        </div>
+                    </div>
+                    <img src="img/quangcao.jpg" alt="">
+                </div>
+           
+            </section>
+
+        </div>
+    </div>
+    {{> footer}}
+</div>
+
+{{!-- <script>
+    var sk = document.getElementsByName('search');
+    sk[0].onmouseover = function (evt) {
+        document.getElementsByName('search')[0].placeholder = 'Bạn muốn tìm gì?';
+    }
+    sk[0].onmouseout = function (evt) {
+        evt.target.placeholder = "Tìm kiếm...";
+    }
+</script> --}}
+

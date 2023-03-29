@@ -1,0 +1,68 @@
+.row {
+  padding-right: 0px; }
+
+.col {
+  background-color: rgba(225, 231, 228, 0.6); }
+
+.col-5 {
+  background-color: rgba(225, 231, 228, 0.6); }
+
+.col-4 {
+  background-color: #e1e7e4; }
+
+.col-4 > * {
+  padding-left: 5px;
+  margin-left: 15px; }
+
+img {
+  background-color: #e1e7e4;
+  width: 420px; }
+
+h2 {
+  font-weight: 700;
+  text-shadow: 2px 2px 2px #29404e;
+  padding-bottom: 20px; }
+
+#describe {
+  font-weight: 500;
+  background-color: #f8fafa; }
+
+#classify, #price {
+  color: #3f3131;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #383131; }
+
+#btn {
+  text-align: center; }
+
+/* CSS */
+#btn-buy {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation; }
+
+.button-74:hover {
+  background-color: #fff; }
+
+.button-74:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px); }
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px; } }

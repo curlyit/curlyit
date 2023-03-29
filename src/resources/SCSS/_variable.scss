@@ -1,0 +1,5 @@
+$my_color: #21a8b9;
+@mixin style_home($color) {
+  color: $color;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}

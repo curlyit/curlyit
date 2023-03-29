@@ -1,0 +1,12 @@
+-   Nodemon: Server tự cập nhật khi coder thay đổi code ở local
+-   Morgan: hiển thị chi tiết những yêu cầu gửi lên HTTP
+-   Handlebars: để thể hiện các layouts, hay việc ràng buộc dữ liệu vào 1 template chính
+-   argon2 -> hashed password, iwt
+-   prettier: là công cụ để format code tự động nhằm tạo phong cách code đồng nhất cho dự án
+-   lint-staged: dùng để chạy những file(đã đc thêm vào git) xem có thay đổi gì ko và sửa lại
+-   template engine
+-   mongoose-slug-generator tự động tạo slug 
+-   methodOverride dùng để thay đổi phương thức (GET/POST -> PUT/DELETE...) khi submit form
+-   mongooseDelete là 1 plugin cho MongoDB, dùng để xóa mềm các bản ghi
+        + Delete soft là kiểu xóa có thể xóa giả(ko mất), xóa vĩnh viễn và khôi phục
+-   SweetAlert2 để tạo giao diện UI thông báo(dùng ở client vì nodejs ko có window)

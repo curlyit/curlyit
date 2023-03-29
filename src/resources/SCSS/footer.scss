@@ -1,0 +1,18 @@
+/* footer */
+footer {
+    background-color: rgb(39, 49, 56);
+    height: 50px;
+    color: aliceblue;
+  }
+  footer .container {
+    display: flex;
+  }
+  footer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  footer p {
+    margin: 0 auto;
+  }

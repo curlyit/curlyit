@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/css/createProduct.css">
+<div onload="loadType()">
+    {{> menuBar}}
+    <div class="row">
+        {{> sideBar}}
+        <div class="col"></div>
+        <div class="col-9">
+            <h4><span class="badge badge-info">EDIT PRODUCT</span></h4>
+            <form class="form-inline form-create" name="form-edit" method="POST" enctype="multipart/form-data" action="/product/{{product._id}}?_method=PUT">
+                <div class="form-group mr-5 sm-2">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control ml-2" placeholder="Enter title" id="title" name="title" value="{{product.title}}" required>
+                </div>
+                <div class="form-group mr-5 sm-2">
+                    <label for="price">Price:</label>
+                    <input type="text" class="form-control ml-2" placeholder="Enter price" id="price" name="price" value="{{product.price}}" required>
+                </div>
+                <div class="form-group mr-5 sm-2">
+                    <label for="type">Type:</label>
+                    <select name="type" id="typeProduct" class="form-control">
+                    
+                    </select>
+                </div>
+                <div class="form-group mr-5 sm-2">
+                    <label for="describe">Describe:</label>
+                    <textarea name="describe" id="describe" class="form-control" cols="30" rows="5" required>{{product.describe}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="images" class="drop-container">
+                        <span class="drop-title">Drop files here</span>
+                        or
+                        <input type="file" id="images" name="images" accept="image/*">
+                    </label>
+                </div>
+                
+                <div id="btn-smt-form">
+                    <button type="submit" class="btn btn-primary ">Change</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+  $(document).ready(function()
+      {
+      const typeSelect = $('#typeProduct');
+        const types = ['accessory', 'food', 'lineage']; // mảng các giá trị của type
+        const selectedType = "{{product.type}}"; //giá trị từ database
+
+        // Tạo các phần tử option và đánh dấu selected cho phần tử tương ứng
+        types.forEach(type => {
+            const option = document.createElement("option");
+            option.value = type;
+            option.textContent = type;
+            if (type === selectedType) {
+            option.selected = true;
+            }
+            typeSelect.append(option);
+        });
+         
+  }
+  )
+</script>
+

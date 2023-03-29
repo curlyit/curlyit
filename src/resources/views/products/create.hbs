@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/css/createProduct.css">
+<div>
+    {{> menuBar}}
+    <div class="row">
+        {{> sideBar}}
+        <div class="col"></div>
+        <div class="col-9">
+            <h4><span class="badge badge-info">CREATE PRODUCT</span></h4>
+            <form class="form-inline form-create" method="POST" enctype="multipart/form-data" action="/product/store">
+                <div class="form-group mr-5 sm-2">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control ml-2" placeholder="Enter title" name="title" id="title">
+                </div>
+                <div class="form-group mr-5 sm-2">
+                    <label for="price">Price:</label>
+                    <input type="text" class="form-control ml-2" placeholder="Enter price" name="price" id="price">
+                </div>
+                <div class="form-group mr-5 sm-2">
+                    <label for="type">Type:</label>
+                    <select name="type" id="type" class="form-control">
+                        <option value="accessory">Phụ kiện Pet</option>
+                        <option value="food">Thức ăn Pet</option>
+                        <option value="lineage">Giống Pet</option>
+                    </select>
+                </div>
+                <div class="form-group mr-5 sm-2">
+                    <label for="describe">Describe:</label>
+                    <textarea name="describe" id="describe" class="form-control" cols="30" rows="5" placeholder="Enter your describe..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="images" class="drop-container">
+                        <span class="drop-title">Drop files here</span>
+                        or
+                        <input type="file" id="images" name="images" accept="image/*" required>
+                    </label>
+                </div>
+                
+                <div id="btn-smt-form">
+                    <button type="submit" class="btn btn-primary ">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</div>
+

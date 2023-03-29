@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="/user/register.css">
+<link rel="stylesheet" href="/css/popup.css">
+<div class="contact-us">
+    <form name="formLogin" method="POST" action="#">
+        <input name="username" placeholder="Username" type="text" required/>
+        <input type="password" placeholder="Password" name="password" required/>
+        <button type="submit">LOG IN</button>
+        <br>
+        <p id="navigation-login">Do not have an account? <a href="/user/register" id="nav-login">Sign up</a></p>    
+    </form>
+</div>
+<script>
+    const form = document.forms['formLogin'];
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        const username = form.username.value;
+        const password = form.password.value;
+        if(!username || !password){
+            Swal.fire({
+                        title: 'Notify',
+                        text: 'Please complete all information!',
+                        icon: 'error'
+                    })
+            return;
+        }
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                const response = JSON.parse(this.responseText);
+
+                if(response.success){
+                    Swal.fire({
+                        title: 'Notify',
+                        text: 'Login successfully!',
+                        icon: 'success'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "/";
+                        }
+                    })
+                } else {
+                    Swal.fire({
+                        title: 'Notify',
+                        text: response.errorMessage,
+                        icon: 'error'
+                    })
+                }
+            } else {
+                document.getElementById('error-message').textContent = 'Error occurred while processing the request.';
+            }
+        }
+    };
+    xhttp.open('POST', '/user/checkLogin', true);
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send(`username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
+    })
+</script>
