@@ -6,7 +6,7 @@
         + Và các thư viện khác như bootstrap, prettier, morgan.... 
         
 - Chức năng, nghiệp vụ: 
-        + Đây là 1 trang web cơ bản thể hiện làm việc với cả front-end và back-end.
+        + Đây là 1 trang web cơ bản làm việc với cả front-end và back-end(gõ `npm start` để chạy).
         + Khi chạy chương trình, trang home sẽ xuất hiện, bạn có thể xem thông tin 
         sản phẩm bằng cách click vào nó.
         + Khi người dùng login, sẽ hiện button user để người dùng đăng nhập/đăng kí
